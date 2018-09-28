@@ -16,7 +16,7 @@ export class CockpitComponent implements OnInit {
   @Output() serverCreated = new EventEmitter<{ name: string, content: string }>();
   @Output() bluePrintCreated = new EventEmitter<{ name: string, content: string }>();
 
-  constructor() { console.log('constructor called'); }
+  constructor() {}
 
   ngOnInit() {
   }

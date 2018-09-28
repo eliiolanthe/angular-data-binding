@@ -7,8 +7,10 @@
     <div class="col-xs-12">
       <button
         class="btn btn-primary"
-        (click)="onChangeFirst()"
-      >Change</button>
+        (click)="onChangeFirst()">Change</button>
+      <button
+        class="btn btn-danger"
+        (click)="onDestroyFirst()">Destroy first</button>
       <app-server-element
         *ngFor="let serverElement of serverElements"
         [name]="serverElement.name"
