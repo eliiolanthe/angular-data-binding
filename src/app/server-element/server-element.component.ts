@@ -1,3 +1,4 @@
+import { ElementRef } from '@angular/core';
 import {
   Component,
   OnInit,
@@ -9,7 +10,8 @@ import {
   AfterContentChecked,
   AfterViewInit,
   AfterViewChecked,
-  OnDestroy
+  OnDestroy,
+  ViewChild
  } from '@angular/core';
 
 @Component({
@@ -32,11 +34,13 @@ export class ServerElementComponent implements
   //   content: string
   // };
   @Input() name: string; // bound to serverElement.name in the view
+  @ViewChild('heading') header: ElementRef;
 
   constructor() { console.log('constructor called'); }
 
   ngOnInit() {
     console.log('ngOnInit called!');
+    console.log(`--- Text content --- ${this.header.nativeElement.textContent}`);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -59,6 +63,8 @@ export class ServerElementComponent implements
 
   ngAfterViewInit() {
     console.log('ngAfterViewInit called');
+    // can't check value of a DOM element until afterViewInit
+    console.log(`--- Text content --- ${this.header.nativeElement.textContent}`);
   }
 
   ngAfterViewChecked() {
